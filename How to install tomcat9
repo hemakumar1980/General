@@ -1,0 +1,24 @@
+Install tomcat9 on QA and ProdServer
+==========================================
+1 Connect to Qaserver using gitbash
+
+2 Update the apt repo
+  sudo apt-get update
+
+3 Install tomcat9
+  sudo apt-get install -y tomcat9
+
+4 Install tomcat9-admin
+  sudo apt-get install -y tomcat9-admin
+
+5 Edit the tomcat-users.xml file
+  cd /etc/tomcat
+  sudo vim tomcat-users.xml
+  Delete all the content and add the below content
+  <tomcat-users>
+      <user username="intimesolutions" password="intimesolutions" roles="manager-script"/> 
+  </tomcat-users>
+
+6 Restart tomcat9
+  sudo service tomcat9 restart
+  Repeat the above 6 steps on prodserver AWS instance
